@@ -1,0 +1,6 @@
+<div class="section">
+	<%= form_for :reason, url: reason_path(@reason), method: :patch do |f| %>
+	 <%= f.text_area :reason %>
+	 <%= f.submit %>
+	 <% end %>
+</div>	

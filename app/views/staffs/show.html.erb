@@ -1,0 +1,42 @@
+<div class="section">
+	
+  <h1><%= link_to "<", staff_path(@member.id, :month => @month-1.month) %>
+	   <%= Time.at(@month).strftime("%B %Y") %> 
+      <%= link_to ">", staff_path(@member.id, :month => @month+1.month) %>
+       <%= @member.name %>
+  </h1>
+  <h2>id number: <%= @member.id %> <i><%= link_to "Edit", edit_staff_path(@member) %> <%= link_to 'Destroy', staff_path(@member.id), method: :delete, data: { confirm: "Are you sure? This can't be undone." } %></i></h2>
+  <h2>Hours: <%= @member.start.strftime("%H:%M") + " - " + @member.finish.strftime("%H:%M") %></h2>
+  <% @emailcontent = '' %>
+  <% @overtime.each do | id, string | %>
+    <li>
+		<%= link_to 'edit ', edit_clock_path( id ) %>
+			<% if string.include? " form" %>
+			  <%= string[0..-5] %>
+			  <%= form_for :reason, :url => {:controller => "reasons", :action => "create", :clock_id => id } do |f| %>
+			    <%= f.text_field :reason %>
+			    <%= f.hidden_field :clock_id, :value => id %>
+			    <%= f.submit %>
+			  <% end %>
+			<% else %>
+			  <% r = string.split("[") %>
+			  <%= r[0] %> <%= link_to "edit", edit_reason_path( r[1] ) unless r[1].nil? %>
+			  <% @emailcontent += r[0] + "\r\n" unless r[1].nil? %>
+			<% end %>
+	       
+	</li>
+	
+	
+  <% end %>
+  
+  <li><h2><%= @total %></h2></li>
+  
+  <div class="r">
+    <%= link_to "Back", staffs_path %>
+  </div>
+  
+  <div class="l">
+	  
+	<a href="mailto:kowens@evelina.southwark.sch.uk?subject=Overtime%20for%20<%= @member.name %>%20<%= Time.at(@month).strftime("%B %Y").to_s %>&body=<%= URI.encode(@emailcontent) %><%= @total %>">Send Email</a>  
+  </div>	  
+</div>

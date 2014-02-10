@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2014-01-02 10:30:53
+  io: 1
+  staffs_id: 
+
+two:
+  time: 2014-01-02 10:30:53
+  io: 1
+  staffs_id: 

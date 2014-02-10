@@ -1,0 +1,9 @@
+<div class="section">
+  <h1><%= image_tag("logo-pink-shadow.png", :alt => "CLockPod", :width => "18%") %> | Evelina Hospital School</h1>
+  <h2>simple personnel management for buzy people</h2>
+  <% @staff.each do |s|%>
+  <li><%= link_to s.name, action: :show, id: s.id %> | <%= s.start.strftime("%H:%M") %> - <%= s.finish.strftime("%H:%M") %></li>
+<% end %>
+
+  <div class="r"><%= link_to "Add Member", new_staff_path %></div>
+</div>

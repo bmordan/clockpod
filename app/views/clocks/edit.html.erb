@@ -1,0 +1,7 @@
+<div class="section">
+<%= form_for :clock, url: clock_path(@clock), method: :patch do |f| %>
+	<li><%= f.text_field :intime %> - <%= f.text_field :out %></li>
+	<li><%= f.submit %></li>
+<% end %>	
+	<li><%= link_to 'cancel', staffs_path %></li>	
+</div>	

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clockpod | Evelina Hospital School</title>
+  <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  
+  <style>
+    h1,h2,p,li,table,a{font-family: 'Abel', sans-serif;}
+    .section{width:70%; margin:auto; padding:2%;}
+    .r{float:right;}
+	.l{float:left;}
+	form{display:inline;}
+	input{width: 33%;}
+	input[type='submit']{width: 12%;}
+    li{list-style-type:none;padding:0.5%;clear:both;}
+    a:link,a:visited,a:hover,a:active {color:#e40a74;text-decoration: none;}
+	.fields_with_errors{background:#e40a74;}
+  </style>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
