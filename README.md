@@ -1,4 +1,4 @@
-![alt text](/app/assets/images/logo_pink_shadow.png "CLockPod")
+![CLockPod](/app/assets/images/logo_pink_shadow.png "CLockPod")
 
 ClockPod is a simple time management app. To get it working you need to set up the Adafruit PN532 NFC/RFID controller shield on an Arduino uno board.
 
@@ -15,6 +15,6 @@ if card.include?("THxE UNxI QUxE CAxR D_xID")
   output(id)
 end
 
-== bernard 
+**bernard** 
 
 
